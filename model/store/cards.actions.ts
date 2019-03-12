@@ -1,4 +1,4 @@
-import { CardModel } from '../model/cards.model';
+import { CardModel } from '../cards.model';
 
     export class GetCardsAction {
         static readonly type = '[CARDS API] get cards';

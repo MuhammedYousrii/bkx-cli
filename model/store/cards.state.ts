@@ -1,8 +1,8 @@
 import { State, NgxsOnInit, StateContext, Action, Selector } from '@ngxs/store';
-    import { CARDSService } from '../model/cards.service';
+    import { CardsService } from '../cards.service';
     import { GetCardsAction, GetCardAction ,RemoveCardAction, AddCardAction, EditCardAction } from './cards.actions';
     import { tap } from 'rxjs/operators';
-    import { CardModel } from '../model/cards.model';
+    import { CardModel } from '../cards.model';
     
     export interface CardsStateModel {
         Cards: CardModel[];

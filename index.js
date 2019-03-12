@@ -5,6 +5,8 @@ const figlet = require("figlet");
 // const shell = require('shelljs')
 const createFile = require('./core/create-file.core');
 const bk = require('commander');
+const {version} = require('./package.json');
+const modelDir = require('./dirs/model.dir');
 
 const init = () => {
   console.log(
@@ -12,53 +14,45 @@ const init = () => {
       figlet.textSync("bianky we bs", {
         font: "Ghost",
         horizontalLayout: "default",
-        verticalLayout: "default"
+        verticalLayout: "default",
+        function (err, data) {
+          if(err) return console.log('Something went wrong') && console.dir(err);
+          console.info(data)
+        }
       })
     )
   );
 };
 
 const askQuestions = () => {
-  const questions = [
-    {
-      name: "FILENAME",
-      type: "input",
-      message: "What is the name of the file without extension?"
-    },
-    {
-      name: "FILETYPE",
-      type: 'input',
-      message: "what is the type of file ?"
-    },
-    {
-      name: "EXTENSION",
-      type: "list",
-      message: "What is the file extension?",
-      choices: [".ts", ".js"],
-      filter: function(val) {
-        return val.split(".")[1];
-      }
+ 
+  bk.version(version, '-v, --version')
+  .command('create <type>')
+  .alias('c')
+  .description('Create new dir of specific type')
+  .option('-n, --name <name>', 'Name of create directory')
+  .option('-e, --extension <extension>', 'extension of the file')
+  .action(function(dirType ,args) {
+    if(dirType && dirType === 'model') {
+      modelDir(args.name, args.extension);
     }
-  ];
-  return inquirer.prompt(questions);
+  });
+
 };
 
 
 
 
-const run = async () => {
+const run = () => {
   // show script introduction
   init();
 
   // ask questions
-  const answers = await askQuestions();
-  const { FILENAME, FILETYPE ,EXTENSION } = answers;
+  askQuestions();
+  bk.parse(process.argv);
+  
+  // const filePath = createFile(name, type, extension || 'ts');
 
-  // create the file
-  const filePath = createFile(FILENAME, FILETYPE, EXTENSION);
-
-  // show success message
-  // success(filePath);
 };
 
 run();

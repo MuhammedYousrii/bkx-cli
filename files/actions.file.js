@@ -4,7 +4,7 @@ function ActionFile(name, singleName) {
     const {upperName, lowerName, lowerSingle, capSingle, capName} = names(name, singleName);
     
 
-    return `import { ${capSingle}Model } from '../model/${lowerName}.model';
+    return `import { ${capSingle}Model } from '../${lowerName}.model';
 
     export class Get${capName}Action {
         static readonly type = '[${upperName} API] get ${lowerName}';

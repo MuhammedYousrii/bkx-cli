@@ -5,10 +5,10 @@ module.exports = function stateFile(name, singleName) {
 
 
     return `import { State, NgxsOnInit, StateContext, Action, Selector } from '@ngxs/store';
-    import { ${upperName}Service } from '../model/${lowerName}.service';
+    import { ${capName}Service } from '../${lowerName}.service';
     import { Get${capName}Action, Get${capSingle}Action ,Remove${capSingle}Action, Add${capSingle}Action, Edit${capSingle}Action } from './${lowerName}.actions';
     import { tap } from 'rxjs/operators';
-    import { ${capSingle}Model } from '../model/${lowerName}.model';
+    import { ${capSingle}Model } from '../${lowerName}.model';
     
     export interface ${capName}StateModel {
         ${capName}: ${capSingle}Model[];
