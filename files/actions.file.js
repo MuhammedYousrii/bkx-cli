@@ -12,12 +12,12 @@ function ActionFile(name, singleName) {
             keywords: string,
             page: number,
             itemsPerPage: number
-        }){}
+        }) {}
     }
-
+    
     export class Get${capSingle}Action {
         static readonly type = '[${upperName} API] get ${capSingle}';
-        constructor (public ${lowerSingle}: ${capSingle}Model) {} 
+        constructor (public id: number) {} 
     }
     
     export class Remove${capSingle}Action {

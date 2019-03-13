@@ -53,6 +53,16 @@ module.exports = function stateFile(name, singleName) {
                 });
             }));
         }
+
+        @Action(Get${singleName}Action)
+        getWithID({getState, patchState}: StateContext<${capName}StateModel>, { id }: Get${capSingle}Action) {
+            return this._service.get${capSingle}(id).pipe(tap( (res => {
+                const {record: ${capSingle}} = res;
+                patchState({
+                    ${capSingle}
+                })
+            })))
+        }
     
         @Action(Remove${capSingle}Action)
         remove( {getState, patchState}: StateContext<${capName}StateModel>, { id }: Remove${capSingle}Action) {
