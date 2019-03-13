@@ -22,7 +22,7 @@ module.exports = function(name, singleName) {
       }
 
       public get${capSingle}(id) {
-        return this._APIS.getWithId(id);
+        return this._APIS.get(this._routeName, id);
       }
     
       public add${capSingle}(${lowerSingle}: ${capSingle}Model) {
