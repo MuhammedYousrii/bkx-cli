@@ -32,9 +32,10 @@ const askQuestions = () => {
   .description('Create new dir of specific type')
   .option('-n, --name <name>', 'Name of create directory')
   .option('-e, --extension <extension>', 'extension of the file')
+  .option('-m, --module', 'Create model with needed modules')
   .action(function(dirType ,args) {
     if(dirType && dirType === 'model') {
-      modelDir(args.name, args.extension);
+      modelDir(args.name, args.extension, args.module);
     }
   });
 
