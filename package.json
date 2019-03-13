@@ -1,5 +1,5 @@
 {
-  "name": "bk",
+  "name": "bkx-cli",
   "version": "2.0.0",
   "description": "package to write angular files dynamic",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node fileWriter.js"
   },
-  "author": "YOUSRII",
+  "author": "muhammedyousrii",
   "license": "ISC",
   "dependencies": {
     "chalk": "^2.4.2",
@@ -19,5 +19,9 @@
   },
   "bin": {
     "bk": "./index.js"
-  }
+  },
+  "devDependencies": {},
+  "keywords": [
+    "cli"
+  ]
 }

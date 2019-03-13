@@ -33,20 +33,23 @@ module.exports = function stateFile(name, singleName) {
         static ${capName}(state: ${capName}StateModel) { return state.${capName}; }
 
         @Selector()
-        static ${capSingle}(state: ${capSingle}StateModel) { return state.${capSingle}; }
+        static ${capSingle}(state: ${capName}StateModel) { return state.${capSingle}; }
         
         ngxsOnInit( { dispatch }: StateContext<${capName}StateModel>) {
-            dispatch(new Get${capName}Action());
+            dispatch(new Get${capName}Action({
+                keywords: null,
+                itemsPerPage: 10,
+                page: 1 
+            }));
         }
     
         @Action(Get${capName}Action)
-        get({getState, setState}: StateContext<${capName}StateModel>, { pagination }: Get${capName}Actions) {
+        get({getState, patchState}: StateContext<${capName}StateModel>, { pagination }: Get${capName}Action) {
             return this._service.get${capName}(pagination).pipe(tap((res) => {
                 const { records: ${capName} } = res;
                 const state = getState();
-                setState({
-                    ...state.${capName},
-                    ${capName}
+                patchState({
+                    ${capName}: [...state.${capName}, ${capName}]
                 });
             }));
         }
@@ -73,15 +76,15 @@ module.exports = function stateFile(name, singleName) {
                 });
             }));
         }
-    
+  
         @Action(Edit${capSingle}Action)
-        edit( {getState, patchState}: StateContext<${capName}tateModel>, { ${capSingle} }: Edit${capSingle}Action) {
-            return this._service.edit(${capSingle}).pipe(tap(res => {
+        edit( {getState, patchState}: StateContext<${capName}StateModel>, { ${lowerSingle} }: Edit${capSingle}Action) {
+            return this._service.edit${capSingle}(${lowerSingle}).pipe(tap(res => {
                 const state = getState();
-                state.${capName} = state.${capName}.filter((admin) => admin.id !== ${capSingle}.id);
+                state.${capName} = state.${capName}.filter((${lowerSingle}) => ${lowerName}.id !== ${lowerSingle}.id);
     
                 patchState({
-                    ${capName}: [...state.${capName}, ${capSingle}]
+                    ${capName}: [...state.${capName}, ${lowerSingle}]
                 });
             }));
         }

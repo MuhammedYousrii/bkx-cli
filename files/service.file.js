@@ -17,7 +17,7 @@ module.exports = function(name, singleName) {
         private _APIS: ApiService
       ) { }
     
-      public get${capName}() {
+      public get${capName}(pagination) {
         return this._APIS.get(this._route);
       }
 
