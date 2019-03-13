@@ -81,7 +81,7 @@ module.exports = function stateFile(name, singleName) {
         edit( {getState, patchState}: StateContext<${capName}StateModel>, { ${lowerSingle} }: Edit${capSingle}Action) {
             return this._service.edit${capSingle}(${lowerSingle}).pipe(tap(res => {
                 const state = getState();
-                state.${capName} = state.${capName}.filter((${lowerSingle}) => ${lowerName}.id !== ${lowerSingle}.id);
+                state.${capName} = state.${capName}.filter((record) => record.id !== ${lowerSingle}.id);
     
                 patchState({
                     ${capName}: [...state.${capName}, ${lowerSingle}]
