@@ -12,7 +12,6 @@ module.exports = function(names, extension = 'ts', createModuleFiles = false) {
         storeDir = path.join(dir, 'store'),
         [name, single] = names.split(',');
 
-
         if (FS.existsSync(dir)) return warn(`${dir}`); 
         FS.mkdir(dir, (err) => {
             if (err) return console.error(err);

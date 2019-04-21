@@ -49,7 +49,8 @@ module.exports = function stateFile(name, singleName) {
                 const { records: ${capName} } = res;
                 const state = getState();
                 patchState({
-                    ${capName}: [...state.${capName}, ${capName}]
+                    ...state.${capName}, 
+                    ${capName}
                 });
             }));
         }

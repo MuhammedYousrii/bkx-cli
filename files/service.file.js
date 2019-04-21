@@ -22,7 +22,7 @@ module.exports = function(name, singleName) {
       }
 
       public get${capSingle}(id) {
-        return this._APIS.get(this._routeName, id);
+        return this._APIS.get(this._route, id);
       }
     
       public add${capSingle}(${lowerSingle}: ${capSingle}Model) {
@@ -30,7 +30,7 @@ module.exports = function(name, singleName) {
       }
     
       public edit${capSingle}(${lowerSingle}: ${capSingle}Model) {
-        return this._APIS.edit(this._route, ${lowerSingle});
+        return this._APIS.edit(this._route, ${lowerSingle}, ${lowerSingle}.id);
       }
     
       public remove${capSingle}(id: string) {

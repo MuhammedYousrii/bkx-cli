@@ -1,8 +1,8 @@
 const names = require('../helpers/namesFormatter.helper');
 
 
-function moduleF() {
-    const { lowerName, capName} = names(name, singleName);
+function moduleF(name, single) {
+    const { lowerName, capName} = names(name, single);
     return `import { NgModule } from '@angular/core';
     import { CommonModule } from '@angular/common';
     
@@ -14,9 +14,8 @@ function moduleF() {
     import { ComponentsModule } from '@shared/components/components.module';
     import { ModalModule } from 'ngx-bootstrap/modal';
     import { NgxsModule } from '@ngxs/store';
-    import { ${capName}State } from './store/${lowerName}.state';
-    import { NgxEditorModule } from 'ngx-editor';
-    import { SharedDialogComponent } from '@shared/components/shared-dialog/shared-dialog.component';
+    import { ${capName}State } from './model/store/${lowerName}.state';
+    
     
     @NgModule({
       declarations: [${capName}IndexComponent, SharedDialogComponent],
