@@ -20,7 +20,9 @@
   "bin": {
     "bk": "./index.js"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "flk-fs": "^1.0.1"
+  },
   "keywords": [
     "cli"
   ]

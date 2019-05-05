@@ -2,11 +2,10 @@
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 const figlet = require("figlet");
-// const shell = require('shelljs')
-const createFile = require('./core/create-file.core');
 const bk = require('commander');
 const {version} = require('./package.json');
 const modelDir = require('./dirs/model.dir');
+const biankyScssDir = require('./dirs/bianky-scss.dir');
 
 const init = () => {
   console.log(
@@ -34,8 +33,12 @@ const askQuestions = () => {
   .option('-e, --extension <extension>', 'extension of the file')
   .option('-m, --module', 'Create model with needed modules')
   .action(function(dirType ,args) {
-    if(dirType && dirType === 'model') {
-      modelDir(args.name, args.extension, args.module);
+    if (dirType) {
+      if ( dirType === 'model') {
+        modelDir(args.name, args.extension, args.module);
+      } else if (dirType === 'bianky-scss') {
+        biankyScssDir();
+      }
     }
   });
 

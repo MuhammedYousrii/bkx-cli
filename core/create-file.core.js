@@ -1,8 +1,5 @@
-const fs = require('fs');
-const actionF = require('../files/actions.file');
-const stateF = require('../files/state.file');
-const serviceF = require('../files/service.file');
-const {
+const fs = require('fs'),
+{
     success
 } = require('./messager.core');
 
