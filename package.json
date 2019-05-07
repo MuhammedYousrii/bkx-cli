@@ -21,6 +21,7 @@
     "bk": "./index.js"
   },
   "devDependencies": {
+    "eslint-config-rallycoding": "^3.2.0",
     "flk-fs": "^1.0.1"
   },
   "keywords": [

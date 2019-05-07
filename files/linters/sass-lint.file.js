@@ -1,4 +1,9 @@
-return `options:
+function customVarsFile() {
+   return '';
+   
+}
+
+module.exports = `options:
 formatter: stylish
 files:
 include: '**/*.s+(a|c)ss'

@@ -7,6 +7,9 @@ const modelF = require('../files/model.file');
 const { moduleF, routeModuleF } = require('../files/module.file');
 const createFile = require('../core/create-file.core');
 const { warn } = require('../core/messager.core');
+
+
+
 module.exports = function(names, extension = 'ts', createModuleFiles = false) {
     const dir = path.join(process.cwd(), 'model'),
         storeDir = path.join(dir, 'store'),
