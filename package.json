@@ -1,6 +1,6 @@
 {
   "name": "bkx-cli",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "description": "package to write angular files dynamic",
   "main": "index.js",
   "scripts": {
