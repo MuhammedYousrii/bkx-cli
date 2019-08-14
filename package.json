@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node fileWriter.js"
+    "start": "node index.js"
   },
   "author": "muhammedyousrii",
   "license": "ISC",
@@ -25,6 +25,8 @@
     "flk-fs": "^1.0.1"
   },
   "keywords": [
-    "cli"
+    "cli",
+    "node",
+    "bianky"
   ]
 }

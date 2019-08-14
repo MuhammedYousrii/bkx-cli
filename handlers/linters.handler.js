@@ -11,7 +11,8 @@ tsLinterFile = require('../files/linters/ts-lint.file.json'),
 
 /**
  * @function
- * @summary Create the needed files to fire linters on project.
+ * @param {string} path - where to init linters
+ * @summary Setup needed linters.
  */
 function createNeededFiles(path) {
     log(info('Creating Files...'))
@@ -20,6 +21,8 @@ function createNeededFiles(path) {
     createFile(join(path, 'tslint.json'), JSON.stringify(tsLinterFile, null, 2))
     log(success('Files Created Successfully'));
 }
+
+
 
 module.exports = function(path = process.cwd()) {
     log(info('Installing rally-coding-config...'))

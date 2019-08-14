@@ -10,7 +10,7 @@ function success (filePath) {
 }
 
 function error () {
-
+    console.log(chalk.red.bold())
 }
 
 function warn(filePath = process.cwd(), customMessage = null) {

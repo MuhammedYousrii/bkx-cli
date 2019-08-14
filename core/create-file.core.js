@@ -1,7 +1,7 @@
 const fs = require('fs'),
 {
     success
-} = require('./messager.core');
+} = require('./logger.core');
 
 module.exports = (path, content) => {
     fs.writeFileSync(path, content);
