@@ -7,7 +7,7 @@ createFile = require('../core/create-file.core'),
 installPackage = require('../core/install-package.core'),
 linterFile =  require('../files/linters/sass-lint.file'),
 customFile = require('../files/scss/custom-scss.file');
-
+customizeFile = require('../files/scss/customize-scss.file');
 
 
 /**
@@ -22,7 +22,8 @@ function setupScssDir(customPath, supportBootstrap) {
     if (!existsSync(basePath)) 
     mkdirSync(basePath);
     createFile(join(basePath, '.sass-lint.yml'), linterFile);
-    createFile(join(process.cwd(), '_bianky.scss'), customFile(supportBootstrap))
+    createFile(join(process.cwd(), '_bianky.scss'), customFile(supportBootstrap));
+    createFile(join(process.cwd(), '_customize.scss'), customizeFile());
     installPackage('bianky-scss', 'D', false)
 }
 
