@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "link": "npm pack && npm link",
+    "publish:minor": "npm pack && npm link && npm publish version minor",
+    "publish:patch": "npm pack && npm link && npm publish version patch"
   },
   "author": "muhammedyousrii",
   "license": "ISC",
