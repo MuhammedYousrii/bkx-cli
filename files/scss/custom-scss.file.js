@@ -1,10 +1,5 @@
 module.exports = function (bootstrap) {
-    return `
-
-    /**
-     * Override [bianky ${bootstrap ? ',bootstrap' : ''}] variables here OR separate it into another file 
-     * 
-    */
+    return `@import './customize';
     
     // DEFAULT OVERRIDING
     @import url('https://fonts.googleapis.com/css?family=Roboto:400');
@@ -13,6 +8,6 @@ module.exports = function (bootstrap) {
 
     @import '~bianky-scss/bianky'; 
     ${bootstrap ? 
-    '@import "~bootstrap/scss/bootstrap";': null} `
+    'Import Bootstrap into entry scss file in case of Angular it will be [style.scss] but make sure that you import customized file file': null} `
    
 }

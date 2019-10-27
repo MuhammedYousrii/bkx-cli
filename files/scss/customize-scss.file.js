@@ -1,6 +1,11 @@
-module.exports = function() {
-    return `@import '../../commons/scss/_colors.scss';
+module.exports = function(bootstrapSupport) {
+    return `
 
+
+    /**
+     * Override [bianky ${bootstrapSupport ? ',bootstrap' : ''}] variables here OR separate it into another file 
+     * 
+    */
 
     // IF HTML DEFAULT FONT-SIZE NOT CHANGED VALUE WILL BE 16PX 
     $spacer: 1rem;

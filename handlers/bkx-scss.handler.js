@@ -21,9 +21,9 @@ function setupScssDir(customPath, supportBootstrap) {
     const basePath = customPath ? join(process.cwd(), customPath): process.cwd();
     if (!existsSync(basePath)) 
     mkdirSync(basePath);
-    createFile(join(basePath, '.sass-lint.yml'), linterFile);
-    createFile(join(process.cwd(), '_bianky.scss'), customFile(supportBootstrap));
-    createFile(join(process.cwd(), '_customize.scss'), customizeFile());
+    createFile(join(process.cwd(), '.sass-lint.yml'), linterFile);
+    createFile(join(process.cwd(), customPath, '_bianky.scss'), customFile(supportBootstrap));
+    createFile(join(process.cwd(), customPath, '_customize.scss'), customizeFile(supportBootstrap));
     installPackage('bianky-scss', 'D', false)
 }
 
