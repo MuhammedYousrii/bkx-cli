@@ -1,14 +1,14 @@
 {
   "name": "bkx-cli",
-  "version": "2.8.0",
+  "version": "2.9.0",
   "description": "package to write angular files dynamic",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "link": "npm pack && npm link",
-    "publish:minor": "npm pack && npm link && npm publish version minor",
-    "publish:patch": "npm pack && npm link && npm publish version patch"
+    "publish:minor": "npm pack && npm link && npm version minor --force && npm publish",
+    "publish:patch": "npm pack && npm link && npm version patch --force && npm publish"
   },
   "author": "muhammedyousrii",
   "license": "ISC",
