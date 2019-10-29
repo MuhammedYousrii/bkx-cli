@@ -18,13 +18,15 @@ const chalk = require('chalk');
  * 
  * @output
  */
-module.exports =  function cloneRepo (
-    dir
+module.exports = function cloneRepo (
+    dir,
+    callback
 ) {
     log(`BK is cloning js-lib-starter-kit to directory ${dir}...`);
     exec(`git clone git@github.com:MuhammedYousrii/js-lib-starter-kit.git ${dir}`, function(err, stdout) {
         log(chalk.italic.green(`cloned to ${dir} successfully`));
         log(stdout);
+        if (callback) callback();
         if (err) log(chalk.bold.red(`Error Occur while cloning to ${dir} - ${err}`))
     })
 }

@@ -5,8 +5,12 @@ const messages = {
     error: 'Warning Dir is already existing'
 }
 
-function success (filePath) {
-    console.log(chalk.white.bgGreen.bold(`${messages.success}: ${filePath}`));
+function success (filePath, message = messages.success) {
+    console.log(chalk.white.bgGreen.bold(`${message}: ${filePath}`));
+}
+
+function info (filePath, message) {
+    console.log(chalk.blue.bold(`On ${filePath}, ${message}`))
 }
 
 function error () {
@@ -20,5 +24,6 @@ function warn(filePath = process.cwd(), customMessage = null) {
 module.exports = {
     success,
     error,
-    warn
+    warn,
+    info
 }

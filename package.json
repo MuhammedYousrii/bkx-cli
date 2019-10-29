@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "link": "npm pack && npm link",
-    "publish:minor": "npm pack && npm link && npm version minor --force && npm publish",
-    "publish:patch": "npm pack && npm link && npm version patch --force && npm publish"
+    "link": "npm link",
+    "publish:minor": "npm link && npm version minor --force && npm publish",
+    "publish:patch": "npm link && npm version patch --force && npm publish"
   },
   "author": "muhammedyousrii",
   "license": "ISC",
